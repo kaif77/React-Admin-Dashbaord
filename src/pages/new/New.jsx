@@ -1,10 +1,61 @@
-import React from 'react'
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
 import "./new.scss";
+import { DriveFolderUpload } from "@mui/icons-material";
+import { useState } from "react";
 
-const New = () => {
+const New = ({ inputs, title }) => {
+  const [file, setFile] = useState("");
+
   return (
-    <div>New</div>
-  )
-}
+    <div className="new">
+      <Sidebar />
+      <div className="new-container">
+        <Navbar />
+        <div className="top">
+          <h1>{title}</h1>
+        </div>
+        <div className="bottom">
+          <div className="left">
+            <img
+              className="item-img"
+              src={
+                file
+                  ? URL.createObjectURL(file)
+                  : "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+              }
+              alt=""
+            />
+          </div>
+          <div className="right">
+            <form>
+              <div className="form-input">
+                <label htmlFor="file">
+                  Image <DriveFolderUpload className="icon" />
+                </label>
+                <input
+                  type="file"
+                  id="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  style={{ display: "none" }}
+                />
+              </div>
 
-export default New
+              {inputs.map((input) => {
+                return (
+                  <div className="form-input" key={input.id}>
+                    <label>{input.label}</label>
+                    <input type={input.type} placeholder={input.placeholder} />
+                  </div>
+                );
+              })}
+              <button>Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default New;

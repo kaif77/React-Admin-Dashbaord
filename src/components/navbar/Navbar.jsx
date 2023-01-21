@@ -6,11 +6,14 @@ import {
   ListAltOutlined,
   NotificationsOutlined,
   SearchOutlined,
+  WbSunnyOutlined,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useContext } from "react";
+import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
 
 const Navbar = () => {
+  const { dispatch, darkMode } = useContext(DarkModeContext);
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -24,7 +27,17 @@ const Navbar = () => {
             English
           </div>
           <div className="item">
-            <DarkModeOutlined className="icon" />
+            {darkMode ? (
+              <WbSunnyOutlined
+                className="icon"
+                onClick={() => dispatch({ type: "TOGGLE" })}
+              />
+            ) : (
+              <DarkModeOutlined
+                className="icon"
+                onClick={() => dispatch({ type: "TOGGLE" })}
+              />
+            )}
           </div>
           <div className="item">
             <FullscreenExitOutlined className="icon" />
@@ -41,10 +54,10 @@ const Navbar = () => {
             <ListAltOutlined className="icon" />
           </div>
           <div className="item">
-            <img 
-            src="https://cdn-icons-png.flaticon.com/512/6073/6073874.png"
-            alt="user"
-            className="avatar"
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/6073/6073874.png"
+              alt="user"
+              className="avatar"
             />
           </div>
         </div>

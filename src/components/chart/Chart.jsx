@@ -9,44 +9,46 @@ import {
 } from "recharts";
 import "./chart.scss";
 
-const Chart = () => {
-    const data = [
-        {
-          name: "January",
-          amt: 1200,
-        },
-        {
-          name: "February",
-          amt: 2100,
-        },
-        {
-          name: "March",
-          amt: 800,
-        },
-        {
-          name: "April",
-          amt: 1700,
-        },
-        {
-          name: "June",
-          amt: 1000,
-        },
-        {
-          name: "July",
-          amt: 1500,
-        },
-        {
-          name: "August",
-          amt: 2100,
-        },
-      ];
+const data = [
+  {
+    name: "January",
+    amt: 1200,
+  },
+  {
+    name: "February",
+    amt: 2100,
+  },
+  {
+    name: "March",
+    amt: 800,
+  },
+  {
+    name: "April",
+    amt: 1700,
+  },
+  {
+    name: "June",
+    amt: 1000,
+  },
+  {
+    name: "July",
+    amt: 1500,
+  },
+  {
+    name: "August",
+    amt: 2100,
+  },
+];
+
+const Chart = ({aspect, title}) => {
+    
       
   return (
     <div className="chart">
       <div className="charts-titles">
-            Previous Revenues (Monthly)
+        {title}
         </div>
-      <ResponsiveContainer width="100%" aspect={2 / 1}>
+      <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart
           width={730}
           height={250}
