@@ -202,3 +202,81 @@ export const userRows = [
     age: 36,
   },
 ];
+
+
+
+export const productColumns = [
+  { field: "id", headerName: "ID", width: 150 },
+  {
+    field: "product",
+    headerName: "Product",
+    width: 270,
+    renderCell: (params) => {
+      return (
+        <div className="cell-with-image">
+          <img className="cell-img" src={params.row.img} alt="avatar" />
+          {params.row.product}
+        </div>
+      );
+    },
+  },
+  { field: "amount", headerName: "Amount", width: 150 },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 200,
+    renderCell: (params) => {
+      return (
+        <div className={`cell-with-status ${params.row.status}`}>
+          {params.row.status}
+        </div>
+      );
+    },
+  }
+];
+
+
+export const productRows = [
+  {
+    id: 11525,
+    product: "Acer Nitro 4",
+    img:"https://www.lapzone.lk/wp-content/uploads/2020/11/71s1LRpaprL._AC_SL1500_.jpg",
+    amount: "$560",
+    status: "In Stock",
+  },
+  {
+    id: 24526,
+    product: "Dell Inspire",
+    img:"https://m.media-amazon.com/images/I/71nP6lTogjL._AC_SL1500_.jpg",
+    amount: "$230",
+    status: "In Stock",
+  },
+  {
+    id: 41522,
+    product: "XBOX",
+    img: "https://m.media-amazon.com/images/I/61JGKhqxHxL._SL1500_.jpg",
+    amount: "$499",
+    status: "Out of Stock",
+  },
+  {
+    id: 471523,
+    product: "Razer Mobile",
+    img:"https://variety.com/wp-content/uploads/2018/10/razer-phone-2.png",
+    amount: "$870",
+    status: "In Stock",
+  },
+  {
+    id: 24185,
+    product: "ASUZ ROG",
+    img:"https://m.media-amazon.com/images/I/71RK6+rx-xL._AC_SL1500_.jpg",
+    amount: "$1500",
+    status: "Out of Stock",
+  },
+  {
+    id: 241563,
+    product: "Acer Nitro 4",
+    img:"https://www.lapzone.lk/wp-content/uploads/2020/11/71s1LRpaprL._AC_SL1500_.jpg",
+    amount: "$560",
+    status: "In Stock",
+  },
+]
